@@ -1,0 +1,833 @@
+2026-02-20 16:03:25.077 -06:00 [INF] Starting Metrics Worker Service
+2026-02-20 16:03:25.584 -06:00 [INF] Connecting to Astra DB: c0a9cbbf-b373-44ff-a5d8-b557ecb22a0a
+2026-02-20 16:03:27.705 -06:00 [INF] Successfully connected to Astra DB keyspace: metrics_data
+2026-02-20 16:03:27.726 -06:00 [INF] Worker started at: "2026-02-20T16:03:27.7252366-06:00"
+2026-02-20 16:03:27.726 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-20 16:03:27.734 -06:00 [INF] Hosting environment: Development
+2026-02-20 16:03:27.737 -06:00 [INF] Content root path: C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker
+2026-02-20 16:03:27.860 -06:00 [INF] Saved test metric at: "2026-02-20T16:03:27.8608101-06:00"
+2026-02-20 16:03:36.012 -06:00 [INF] Application is shutting down...
+2026-02-20 16:04:42.276 -06:00 [INF] Starting Metrics Worker Service
+2026-02-20 16:04:42.459 -06:00 [INF] Connecting to Astra DB: c0a9cbbf-b373-44ff-a5d8-b557ecb22a0a
+2026-02-20 16:04:44.264 -06:00 [INF] Successfully connected to Astra DB keyspace: metrics_data
+2026-02-20 16:04:44.285 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-20 16:04:44.285 -06:00 [INF] Worker started at: "2026-02-20T16:04:44.2846597-06:00"
+2026-02-20 16:04:44.287 -06:00 [INF] Hosting environment: Development
+2026-02-20 16:04:44.292 -06:00 [INF] Content root path: C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker
+2026-02-20 16:04:44.414 -06:00 [INF] Saved test metric at: "2026-02-20T16:04:44.4147694-06:00"
+2026-02-20 16:05:44.595 -06:00 [INF] Saved test metric at: "2026-02-20T16:05:44.5955229-06:00"
+2026-02-20 16:06:36.898 -06:00 [INF] Application is shutting down...
+2026-02-20 16:17:43.769 -06:00 [INF] Starting Metrics Worker Service
+2026-02-20 16:17:44.275 -06:00 [INF] Connecting to Astra DB: c0a9cbbf-b373-44ff-a5d8-b557ecb22a0a
+2026-02-20 16:17:46.243 -06:00 [INF] Successfully connected to Astra DB keyspace: metrics_data
+2026-02-20 16:17:46.364 -06:00 [INF] Azure Insights Worker started
+2026-02-20 16:17:46.364 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-20 16:17:46.365 -06:00 [INF] Collecting Azure Insights metrics...
+2026-02-20 16:17:46.367 -06:00 [INF] Hosting environment: Development
+2026-02-20 16:17:46.370 -06:00 [INF] Content root path: C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker
+2026-02-20 16:17:46.371 -06:00 [INF] Starting Azure Insights metrics collection
+2026-02-20 16:17:46.470 -06:00 [ERR] Error collecting request metrics
+Azure.Identity.AuthenticationFailedException: ClientSecretCredential authentication failed: Value cannot be null. (Parameter 'clientSecret')
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'clientSecret')
+   at Microsoft.Identity.Client.ConfidentialClientApplicationBuilder.WithClientSecret(String clientSecret)
+   at Azure.Identity.MsalConfidentialClient.CreateClientCoreAsync(Boolean enableCae, Boolean async, CancellationToken cancellationToken)
+   at Azure.Identity.MsalClientBase`1.GetClientAsync(Boolean enableCae, Boolean async, CancellationToken cancellationToken)
+   at Azure.Identity.MsalConfidentialClient.AcquireTokenForClientCoreAsync(String[] scopes, String tenantId, String claims, Boolean enableCae, Boolean async, CancellationToken cancellationToken)
+   at Azure.Identity.MsalConfidentialClient.AcquireTokenForClientAsync(String[] scopes, String tenantId, String claims, Boolean enableCae, Boolean async, CancellationToken cancellationToken)
+   at Azure.Identity.ClientSecretCredential.GetTokenAsync(TokenRequestContext requestContext, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Azure.Identity.CredentialDiagnosticScope.FailWrapAndThrow(Exception ex, String additionalMessage, Boolean isCredentialUnavailable)
+   at Azure.Identity.ClientSecretCredential.GetTokenAsync(TokenRequestContext requestContext, CancellationToken cancellationToken)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AccessTokenCache.SetResultOnTcsFromCredentialAsync(TokenRequestContext context, TaskCompletionSource`1 targetTcs, Boolean async, CancellationToken cancellationToken)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AccessTokenCache.GetAuthHeaderValueAsync(HttpMessage message, TokenRequestContext context, Boolean async)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AccessTokenCache.TokenRequestState.GetCurrentHeaderValue(Boolean async, Boolean checkForCompletion, CancellationToken cancellationToken)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AccessTokenCache.GetAuthHeaderValueAsync(HttpMessage message, TokenRequestContext context, Boolean async)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AuthenticateAndAuthorizeRequestAsync(HttpMessage message, TokenRequestContext context)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Core.Pipeline.RedirectPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Core.Pipeline.RetryPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Core.Pipeline.RetryPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectRequestMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 91
+2026-02-20 16:17:46.509 -06:00 [ERR] Error collecting dependency metrics
+Azure.Identity.AuthenticationFailedException: ClientSecretCredential authentication failed: Value cannot be null. (Parameter 'clientSecret')
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'clientSecret')
+   at Microsoft.Identity.Client.ConfidentialClientApplicationBuilder.WithClientSecret(String clientSecret)
+   at Azure.Identity.MsalConfidentialClient.CreateClientCoreAsync(Boolean enableCae, Boolean async, CancellationToken cancellationToken)
+   at Azure.Identity.MsalClientBase`1.GetClientAsync(Boolean enableCae, Boolean async, CancellationToken cancellationToken)
+   at Azure.Identity.MsalConfidentialClient.AcquireTokenForClientCoreAsync(String[] scopes, String tenantId, String claims, Boolean enableCae, Boolean async, CancellationToken cancellationToken)
+   at Azure.Identity.MsalConfidentialClient.AcquireTokenForClientAsync(String[] scopes, String tenantId, String claims, Boolean enableCae, Boolean async, CancellationToken cancellationToken)
+   at Azure.Identity.ClientSecretCredential.GetTokenAsync(TokenRequestContext requestContext, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Azure.Identity.CredentialDiagnosticScope.FailWrapAndThrow(Exception ex, String additionalMessage, Boolean isCredentialUnavailable)
+   at Azure.Identity.ClientSecretCredential.GetTokenAsync(TokenRequestContext requestContext, CancellationToken cancellationToken)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AccessTokenCache.SetResultOnTcsFromCredentialAsync(TokenRequestContext context, TaskCompletionSource`1 targetTcs, Boolean async, CancellationToken cancellationToken)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AccessTokenCache.GetAuthHeaderValueAsync(HttpMessage message, TokenRequestContext context, Boolean async)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AccessTokenCache.TokenRequestState.GetCurrentHeaderValue(Boolean async, Boolean checkForCompletion, CancellationToken cancellationToken)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AccessTokenCache.GetAuthHeaderValueAsync(HttpMessage message, TokenRequestContext context, Boolean async)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AuthenticateAndAuthorizeRequestAsync(HttpMessage message, TokenRequestContext context)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Core.Pipeline.RedirectPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Core.Pipeline.RetryPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Core.Pipeline.RetryPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectDependencyMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 202
+2026-02-20 16:17:46.519 -06:00 [ERR] Error collecting exception metrics
+Azure.Identity.AuthenticationFailedException: ClientSecretCredential authentication failed: Value cannot be null. (Parameter 'clientSecret')
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'clientSecret')
+   at Microsoft.Identity.Client.ConfidentialClientApplicationBuilder.WithClientSecret(String clientSecret)
+   at Azure.Identity.MsalConfidentialClient.CreateClientCoreAsync(Boolean enableCae, Boolean async, CancellationToken cancellationToken)
+   at Azure.Identity.MsalClientBase`1.GetClientAsync(Boolean enableCae, Boolean async, CancellationToken cancellationToken)
+   at Azure.Identity.MsalConfidentialClient.AcquireTokenForClientCoreAsync(String[] scopes, String tenantId, String claims, Boolean enableCae, Boolean async, CancellationToken cancellationToken)
+   at Azure.Identity.MsalConfidentialClient.AcquireTokenForClientAsync(String[] scopes, String tenantId, String claims, Boolean enableCae, Boolean async, CancellationToken cancellationToken)
+   at Azure.Identity.ClientSecretCredential.GetTokenAsync(TokenRequestContext requestContext, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Azure.Identity.CredentialDiagnosticScope.FailWrapAndThrow(Exception ex, String additionalMessage, Boolean isCredentialUnavailable)
+   at Azure.Identity.ClientSecretCredential.GetTokenAsync(TokenRequestContext requestContext, CancellationToken cancellationToken)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AccessTokenCache.SetResultOnTcsFromCredentialAsync(TokenRequestContext context, TaskCompletionSource`1 targetTcs, Boolean async, CancellationToken cancellationToken)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AccessTokenCache.GetAuthHeaderValueAsync(HttpMessage message, TokenRequestContext context, Boolean async)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AccessTokenCache.TokenRequestState.GetCurrentHeaderValue(Boolean async, Boolean checkForCompletion, CancellationToken cancellationToken)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AccessTokenCache.GetAuthHeaderValueAsync(HttpMessage message, TokenRequestContext context, Boolean async)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AuthenticateAndAuthorizeRequestAsync(HttpMessage message, TokenRequestContext context)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Core.Pipeline.RedirectPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Core.Pipeline.RetryPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Core.Pipeline.RetryPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectExceptionMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 277
+2026-02-20 16:17:46.537 -06:00 [ERR] Error collecting custom metrics
+Azure.Identity.AuthenticationFailedException: ClientSecretCredential authentication failed: Value cannot be null. (Parameter 'clientSecret')
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'clientSecret')
+   at Microsoft.Identity.Client.ConfidentialClientApplicationBuilder.WithClientSecret(String clientSecret)
+   at Azure.Identity.MsalConfidentialClient.CreateClientCoreAsync(Boolean enableCae, Boolean async, CancellationToken cancellationToken)
+   at Azure.Identity.MsalClientBase`1.GetClientAsync(Boolean enableCae, Boolean async, CancellationToken cancellationToken)
+   at Azure.Identity.MsalConfidentialClient.AcquireTokenForClientCoreAsync(String[] scopes, String tenantId, String claims, Boolean enableCae, Boolean async, CancellationToken cancellationToken)
+   at Azure.Identity.MsalConfidentialClient.AcquireTokenForClientAsync(String[] scopes, String tenantId, String claims, Boolean enableCae, Boolean async, CancellationToken cancellationToken)
+   at Azure.Identity.ClientSecretCredential.GetTokenAsync(TokenRequestContext requestContext, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Azure.Identity.CredentialDiagnosticScope.FailWrapAndThrow(Exception ex, String additionalMessage, Boolean isCredentialUnavailable)
+   at Azure.Identity.ClientSecretCredential.GetTokenAsync(TokenRequestContext requestContext, CancellationToken cancellationToken)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AccessTokenCache.SetResultOnTcsFromCredentialAsync(TokenRequestContext context, TaskCompletionSource`1 targetTcs, Boolean async, CancellationToken cancellationToken)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AccessTokenCache.GetAuthHeaderValueAsync(HttpMessage message, TokenRequestContext context, Boolean async)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AccessTokenCache.TokenRequestState.GetCurrentHeaderValue(Boolean async, Boolean checkForCompletion, CancellationToken cancellationToken)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AccessTokenCache.GetAuthHeaderValueAsync(HttpMessage message, TokenRequestContext context, Boolean async)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.AuthenticateAndAuthorizeRequestAsync(HttpMessage message, TokenRequestContext context)
+   at Azure.Core.Pipeline.BearerTokenAuthenticationPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Core.Pipeline.RedirectPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Core.Pipeline.RetryPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Core.Pipeline.RetryPolicy.ProcessAsync(HttpMessage message, ReadOnlyMemory`1 pipeline, Boolean async)
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectCustomMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 335
+2026-02-20 16:17:46.549 -06:00 [INF] Collected 0 Azure Insights metrics
+2026-02-20 16:17:46.553 -06:00 [INF] Saved 0 Azure Insights metrics. Next collection in 15 minutes
+2026-02-20 16:18:41.181 -06:00 [INF] Application is shutting down...
+2026-02-20 16:24:44.231 -06:00 [INF] Starting Metrics Worker Service
+2026-02-20 16:24:44.628 -06:00 [INF] Connecting to Astra DB: c0a9cbbf-b373-44ff-a5d8-b557ecb22a0a
+2026-02-20 16:24:46.444 -06:00 [INF] Successfully connected to Astra DB keyspace: metrics_data
+2026-02-20 16:24:46.532 -06:00 [INF] Azure Insights Worker started
+2026-02-20 16:24:46.533 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-20 16:24:46.534 -06:00 [INF] Collecting Azure Insights metrics...
+2026-02-20 16:24:46.537 -06:00 [INF] Hosting environment: Development
+2026-02-20 16:24:46.540 -06:00 [INF] Starting Azure Insights metrics collection
+2026-02-20 16:24:46.541 -06:00 [INF] Content root path: C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker
+2026-02-20 16:24:49.886 -06:00 [ERR] Error collecting request metrics
+Azure.RequestFailedException: The workspace could not be found
+Status: 404 (Not Found)
+ErrorCode: WorkspaceNotFoundError
+
+Content:
+{"error":{"message":"The workspace could not be found","code":"WorkspaceNotFoundError","correlationId":"7876b57c-eee8-423f-bfd9-6c29044b6957"}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:24:49 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: 7876b57c-eee8-423f-bfd9-6c29044b6957
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 143
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectRequestMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 91
+2026-02-20 16:24:49.974 -06:00 [ERR] Error collecting dependency metrics
+Azure.RequestFailedException: The workspace could not be found
+Status: 404 (Not Found)
+ErrorCode: WorkspaceNotFoundError
+
+Content:
+{"error":{"message":"The workspace could not be found","code":"WorkspaceNotFoundError","correlationId":"16009278-e962-40f7-9489-c628a6b85e7c"}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:24:49 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: 16009278-e962-40f7-9489-c628a6b85e7c
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 143
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectDependencyMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 202
+2026-02-20 16:24:50.427 -06:00 [ERR] Error collecting exception metrics
+Azure.RequestFailedException: The workspace could not be found
+Status: 404 (Not Found)
+ErrorCode: WorkspaceNotFoundError
+
+Content:
+{"error":{"message":"The workspace could not be found","code":"WorkspaceNotFoundError","correlationId":"3f5025f7-30a1-48c9-bba8-0250462be872"}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:24:50 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: 3f5025f7-30a1-48c9-bba8-0250462be872
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 143
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectExceptionMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 277
+2026-02-20 16:24:50.494 -06:00 [ERR] Error collecting custom metrics
+Azure.RequestFailedException: The workspace could not be found
+Status: 404 (Not Found)
+ErrorCode: WorkspaceNotFoundError
+
+Content:
+{"error":{"message":"The workspace could not be found","code":"WorkspaceNotFoundError","correlationId":"e1b92964-b517-4cca-bc01-ab3164dcd4cf"}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:24:50 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: e1b92964-b517-4cca-bc01-ab3164dcd4cf
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 143
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectCustomMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 335
+2026-02-20 16:24:50.505 -06:00 [INF] Collected 0 Azure Insights metrics
+2026-02-20 16:24:50.509 -06:00 [INF] Saved 0 Azure Insights metrics. Next collection in 15 minutes
+2026-02-20 16:28:25.445 -06:00 [INF] Application is shutting down...
+2026-02-20 16:28:59.371 -06:00 [INF] Starting Metrics Worker Service
+2026-02-20 16:28:59.848 -06:00 [INF] Connecting to Astra DB: c0a9cbbf-b373-44ff-a5d8-b557ecb22a0a
+2026-02-20 16:29:02.694 -06:00 [INF] Successfully connected to Astra DB keyspace: metrics_data
+2026-02-20 16:29:02.811 -06:00 [INF] Azure Insights Worker started
+2026-02-20 16:29:02.812 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-20 16:29:02.814 -06:00 [INF] Collecting Azure Insights metrics...
+2026-02-20 16:29:02.816 -06:00 [INF] Hosting environment: Development
+2026-02-20 16:29:02.819 -06:00 [INF] Content root path: C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker
+2026-02-20 16:29:02.819 -06:00 [INF] Starting Azure Insights metrics collection
+2026-02-20 16:29:04.905 -06:00 [ERR] Error collecting request metrics
+Azure.RequestFailedException: The request had some invalid properties
+Status: 400 (Bad Request)
+ErrorCode: BadArgumentError
+
+Content:
+{"error":{"message":"The request had some invalid properties","code":"BadArgumentError","correlationId":"fe7310c3-4b3e-4fc4-9368-8c21c5cd4859","innererror":{"code":"SemanticError","message":"A semantic error occurred.","innererror":{"code":"SEM0100","message":"'where' operator: Failed to resolve table or column expression named 'requests'"}}}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:29:04 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: fe7310c3-4b3e-4fc4-9368-8c21c5cd4859
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 345
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectRequestMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 91
+2026-02-20 16:29:05.631 -06:00 [ERR] Error collecting dependency metrics
+Azure.RequestFailedException: The request had some invalid properties
+Status: 400 (Bad Request)
+ErrorCode: BadArgumentError
+
+Content:
+{"error":{"message":"The request had some invalid properties","code":"BadArgumentError","correlationId":"171e5d51-befc-471b-8059-340a95abf389","innererror":{"code":"SemanticError","message":"A semantic error occurred.","innererror":{"code":"SEM0100","message":"'where' operator: Failed to resolve table or column expression named 'dependencies'"}}}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:29:05 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: 171e5d51-befc-471b-8059-340a95abf389
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 349
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectDependencyMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 202
+2026-02-20 16:29:06.820 -06:00 [ERR] Error collecting exception metrics
+Azure.RequestFailedException: The request had some invalid properties
+Status: 400 (Bad Request)
+ErrorCode: BadArgumentError
+
+Content:
+{"error":{"message":"The request had some invalid properties","code":"BadArgumentError","correlationId":"fc93249e-896a-4c92-87b7-3fffbc487710","innererror":{"code":"SemanticError","message":"A semantic error occurred.","innererror":{"code":"SEM0100","message":"'where' operator: Failed to resolve table or column expression named 'exceptions'"}}}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:29:06 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: fc93249e-896a-4c92-87b7-3fffbc487710
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 347
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectExceptionMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 277
+2026-02-20 16:29:07.447 -06:00 [ERR] Error collecting custom metrics
+Azure.RequestFailedException: The request had some invalid properties
+Status: 400 (Bad Request)
+ErrorCode: BadArgumentError
+
+Content:
+{"error":{"message":"The request had some invalid properties","code":"BadArgumentError","correlationId":"b5110600-e47d-48cd-ab5b-78c93a861f3d","innererror":{"code":"SemanticError","message":"A semantic error occurred.","innererror":{"code":"SEM0100","message":"'where' operator: Failed to resolve table or column expression named 'customMetrics'"}}}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:29:07 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: b5110600-e47d-48cd-ab5b-78c93a861f3d
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 350
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectCustomMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 335
+2026-02-20 16:29:07.465 -06:00 [INF] Collected 0 Azure Insights metrics
+2026-02-20 16:29:07.471 -06:00 [INF] Saved 0 Azure Insights metrics. Next collection in 15 minutes
+2026-02-20 16:34:45.287 -06:00 [INF] Application is shutting down...
+2026-02-20 16:35:01.123 -06:00 [INF] Starting Metrics Worker Service
+2026-02-20 16:35:01.597 -06:00 [INF] Connecting to Astra DB: c0a9cbbf-b373-44ff-a5d8-b557ecb22a0a
+2026-02-20 16:35:04.081 -06:00 [INF] Successfully connected to Astra DB keyspace: metrics_data
+2026-02-20 16:35:04.187 -06:00 [INF] Azure Insights Worker started
+2026-02-20 16:35:04.187 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-20 16:35:04.189 -06:00 [INF] Collecting Azure Insights metrics...
+2026-02-20 16:35:04.191 -06:00 [INF] Hosting environment: Development
+2026-02-20 16:35:04.194 -06:00 [INF] Content root path: C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker
+2026-02-20 16:35:04.195 -06:00 [INF] Starting Azure Insights metrics collection
+2026-02-20 16:35:06.760 -06:00 [ERR] Error collecting request metrics
+Azure.RequestFailedException: The request had some invalid properties
+Status: 400 (Bad Request)
+ErrorCode: BadArgumentError
+
+Content:
+{"error":{"message":"The request had some invalid properties","code":"BadArgumentError","correlationId":"c79896f3-281a-452b-9985-a396ee00892c","innererror":{"code":"SemanticError","message":"A semantic error occurred.","innererror":{"code":"SEM0100","message":"'where' operator: Failed to resolve column or scalar expression named 'timestamp'"}}}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:35:06 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: c79896f3-281a-452b-9985-a396ee00892c
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 347
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectRequestMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 91
+2026-02-20 16:35:07.718 -06:00 [ERR] Error collecting dependency metrics
+Azure.RequestFailedException: The request had some invalid properties
+Status: 400 (Bad Request)
+ErrorCode: BadArgumentError
+
+Content:
+{"error":{"message":"The request had some invalid properties","code":"BadArgumentError","correlationId":"348646f4-e171-4e03-b728-94eb0f0a6ce9","innererror":{"code":"SemanticError","message":"A semantic error occurred.","innererror":{"code":"SEM0100","message":"'where' operator: Failed to resolve column or scalar expression named 'timestamp'"}}}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:35:07 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: 348646f4-e171-4e03-b728-94eb0f0a6ce9
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 347
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectDependencyMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 202
+2026-02-20 16:35:08.488 -06:00 [ERR] Error collecting exception metrics
+Azure.RequestFailedException: The request had some invalid properties
+Status: 400 (Bad Request)
+ErrorCode: BadArgumentError
+
+Content:
+{"error":{"message":"The request had some invalid properties","code":"BadArgumentError","correlationId":"3d844dc4-cfa7-4309-8631-fdc56bb2e243","innererror":{"code":"SemanticError","message":"A semantic error occurred.","innererror":{"code":"SEM0100","message":"'where' operator: Failed to resolve column or scalar expression named 'timestamp'"}}}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:35:08 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: 3d844dc4-cfa7-4309-8631-fdc56bb2e243
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 347
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectExceptionMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 277
+2026-02-20 16:35:09.046 -06:00 [ERR] Error collecting custom metrics
+Azure.RequestFailedException: The request had some invalid properties
+Status: 400 (Bad Request)
+ErrorCode: BadArgumentError
+
+Content:
+{"error":{"message":"The request had some invalid properties","code":"BadArgumentError","correlationId":"aaf9c09f-d3fa-4b45-bf07-1969b714d109","innererror":{"code":"SemanticError","message":"A semantic error occurred.","innererror":{"code":"SEM0100","message":"'where' operator: Failed to resolve column or scalar expression named 'timestamp'"}}}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:35:08 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: aaf9c09f-d3fa-4b45-bf07-1969b714d109
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 347
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectCustomMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 335
+2026-02-20 16:35:09.053 -06:00 [INF] Collected 0 Azure Insights metrics
+2026-02-20 16:35:09.059 -06:00 [INF] Saved 0 Azure Insights metrics. Next collection in 15 minutes
+2026-02-20 16:37:28.943 -06:00 [INF] Application is shutting down...
+2026-02-20 16:37:42.101 -06:00 [INF] Starting Metrics Worker Service
+2026-02-20 16:37:42.601 -06:00 [INF] Connecting to Astra DB: c0a9cbbf-b373-44ff-a5d8-b557ecb22a0a
+2026-02-20 16:37:44.508 -06:00 [INF] Successfully connected to Astra DB keyspace: metrics_data
+2026-02-20 16:37:44.601 -06:00 [INF] Azure Insights Worker started
+2026-02-20 16:37:44.602 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-20 16:37:44.604 -06:00 [INF] Collecting Azure Insights metrics...
+2026-02-20 16:37:44.606 -06:00 [INF] Hosting environment: Development
+2026-02-20 16:37:44.609 -06:00 [INF] Starting Azure Insights metrics collection
+2026-02-20 16:37:44.609 -06:00 [INF] Content root path: C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker
+2026-02-20 16:37:47.275 -06:00 [ERR] Error collecting request metrics
+Azure.RequestFailedException: The request had some invalid properties
+Status: 400 (Bad Request)
+ErrorCode: BadArgumentError
+
+Content:
+{"error":{"message":"The request had some invalid properties","code":"BadArgumentError","correlationId":"7d35d936-5695-4f60-8ec8-818584d867ed","innererror":{"code":"SemanticError","message":"A semantic error occurred.","innererror":{"code":"SEM0100","message":"'summarize' operator: Failed to resolve scalar expression named 'name'"}}}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:37:46 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: 7d35d936-5695-4f60-8ec8-818584d867ed
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 336
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectRequestMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 91
+2026-02-20 16:37:48.033 -06:00 [ERR] Error collecting dependency metrics
+Azure.RequestFailedException: The request had some invalid properties
+Status: 400 (Bad Request)
+ErrorCode: BadArgumentError
+
+Content:
+{"error":{"message":"The request had some invalid properties","code":"BadArgumentError","correlationId":"9dc3c32e-ed1b-40d4-bb57-d2782cdbc690","innererror":{"code":"SemanticError","message":"A semantic error occurred.","innererror":{"code":"SEM0100","message":"'where' operator: Failed to resolve column or scalar expression named 'timestamp'"}}}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:37:47 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: 9dc3c32e-ed1b-40d4-bb57-d2782cdbc690
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 347
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectDependencyMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 202
+2026-02-20 16:37:48.406 -06:00 [ERR] Error collecting exception metrics
+Azure.RequestFailedException: The request had some invalid properties
+Status: 400 (Bad Request)
+ErrorCode: BadArgumentError
+
+Content:
+{"error":{"message":"The request had some invalid properties","code":"BadArgumentError","correlationId":"b60c9aad-6373-4b1c-a4ce-21e0203802db","innererror":{"code":"SemanticError","message":"A semantic error occurred.","innererror":{"code":"SEM0100","message":"'where' operator: Failed to resolve column or scalar expression named 'timestamp'"}}}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:37:47 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: b60c9aad-6373-4b1c-a4ce-21e0203802db
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 347
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectExceptionMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 277
+2026-02-20 16:37:49.432 -06:00 [ERR] Error collecting custom metrics
+Azure.RequestFailedException: The request had some invalid properties
+Status: 400 (Bad Request)
+ErrorCode: BadArgumentError
+
+Content:
+{"error":{"message":"The request had some invalid properties","code":"BadArgumentError","correlationId":"792ada2c-cc4b-4a1f-abad-05983c744dea","innererror":{"code":"SemanticError","message":"A semantic error occurred.","innererror":{"code":"SEM0100","message":"'where' operator: Failed to resolve column or scalar expression named 'timestamp'"}}}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:37:49 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: 792ada2c-cc4b-4a1f-abad-05983c744dea
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 347
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectCustomMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 335
+2026-02-20 16:37:49.442 -06:00 [INF] Collected 0 Azure Insights metrics
+2026-02-20 16:37:49.447 -06:00 [INF] Saved 0 Azure Insights metrics. Next collection in 15 minutes
+2026-02-20 16:39:45.641 -06:00 [INF] Application is shutting down...
+2026-02-20 16:41:07.849 -06:00 [INF] Starting Metrics Worker Service
+2026-02-20 16:41:08.264 -06:00 [INF] Connecting to Astra DB: c0a9cbbf-b373-44ff-a5d8-b557ecb22a0a
+2026-02-20 16:41:10.211 -06:00 [INF] Successfully connected to Astra DB keyspace: metrics_data
+2026-02-20 16:41:10.304 -06:00 [INF] Azure Insights Worker started
+2026-02-20 16:41:10.305 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-20 16:41:10.308 -06:00 [INF] Collecting Azure Insights metrics...
+2026-02-20 16:41:10.309 -06:00 [INF] Hosting environment: Development
+2026-02-20 16:41:10.312 -06:00 [INF] Content root path: C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker
+2026-02-20 16:41:10.312 -06:00 [INF] Starting Azure Insights metrics collection
+2026-02-20 16:41:11.344 -06:00 [INF] Collected 0 request metrics
+2026-02-20 16:41:11.688 -06:00 [ERR] Error collecting dependency metrics
+Azure.RequestFailedException: The request had some invalid properties
+Status: 400 (Bad Request)
+ErrorCode: BadArgumentError
+
+Content:
+{"error":{"message":"The request had some invalid properties","code":"BadArgumentError","correlationId":"8b90dc61-8f2b-4bb6-af57-d8c7722f5850","innererror":{"code":"SemanticError","message":"A semantic error occurred.","innererror":{"code":"SEM0100","message":"'summarize' operator: Failed to resolve scalar expression named 'name'"}}}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:41:11 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: 8b90dc61-8f2b-4bb6-af57-d8c7722f5850
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 336
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectDependencyMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 202
+2026-02-20 16:41:12.644 -06:00 [ERR] Error collecting exception metrics
+Azure.RequestFailedException: The request had some invalid properties
+Status: 400 (Bad Request)
+ErrorCode: BadArgumentError
+
+Content:
+{"error":{"message":"The request had some invalid properties","code":"BadArgumentError","correlationId":"496c9811-b981-4236-8dcc-46d36761cfce","innererror":{"code":"SemanticError","message":"A semantic error occurred.","innererror":{"code":"SEM0100","message":"'summarize' operator: Failed to resolve scalar expression named 'type'"}}}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:41:12 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: 496c9811-b981-4236-8dcc-46d36761cfce
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 336
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectExceptionMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 277
+2026-02-20 16:41:13.360 -06:00 [ERR] Error collecting custom metrics
+Azure.RequestFailedException: The request had some invalid properties
+Status: 400 (Bad Request)
+ErrorCode: BadArgumentError
+
+Content:
+{"error":{"message":"The request had some invalid properties","code":"BadArgumentError","correlationId":"5b9c802c-0acf-449b-9c1a-8a9776463f65","innererror":{"code":"SemanticError","message":"A semantic error occurred.","innererror":{"code":"SEM0100","message":"'summarize' operator: Failed to resolve scalar expression named 'name'"}}}}
+
+Headers:
+Date: Fri, 20 Feb 2026 22:41:12 GMT
+Connection: keep-alive
+Via: REDACTED
+X-Content-Type-Options: REDACTED
+x-ms-request-id: 5b9c802c-0acf-449b-9c1a-8a9776463f65
+Access-Control-Allow-Origin: REDACTED
+Access-Control-Expose-Headers: REDACTED
+Vary: REDACTED
+Strict-Transport-Security: REDACTED
+Content-Type: application/json; charset=utf-8
+Content-Length: 336
+
+   at Azure.Monitor.Query.LogsQueryClient.ExecuteAsync(String id, String query, QueryTimeRange timeRange, LogsQueryOptions options, Boolean async, Boolean isWorkspace, CancellationToken cancellationToken)
+   at Azure.Monitor.Query.LogsQueryClient.QueryWorkspaceAsync(String workspaceId, String query, QueryTimeRange timeRange, LogsQueryOptions options, CancellationToken cancellationToken)
+   at MetricsWorker.Services.AzureInsightsCollector.CollectCustomMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\AzureInsightsCollector.cs:line 335
+2026-02-20 16:41:13.371 -06:00 [INF] Collected 0 Azure Insights metrics
+2026-02-20 16:41:13.372 -06:00 [INF] Saved 0 Azure Insights metrics. Next collection in 15 minutes
+2026-02-20 16:43:17.331 -06:00 [INF] Application is shutting down...
+2026-02-20 16:43:33.141 -06:00 [INF] Starting Metrics Worker Service
+2026-02-20 16:43:33.567 -06:00 [INF] Connecting to Astra DB: c0a9cbbf-b373-44ff-a5d8-b557ecb22a0a
+2026-02-20 16:43:35.311 -06:00 [INF] Successfully connected to Astra DB keyspace: metrics_data
+2026-02-20 16:43:35.409 -06:00 [INF] Azure Insights Worker started
+2026-02-20 16:43:35.409 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-20 16:43:35.412 -06:00 [INF] Collecting Azure Insights metrics...
+2026-02-20 16:43:35.413 -06:00 [INF] Hosting environment: Development
+2026-02-20 16:43:35.416 -06:00 [INF] Starting Azure Insights metrics collection
+2026-02-20 16:43:35.416 -06:00 [INF] Content root path: C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker
+2026-02-20 16:43:36.844 -06:00 [INF] Extracted 0 request metrics from workspace logs
+2026-02-20 16:43:39.568 -06:00 [INF] Metric sync successful.
+2026-02-20 16:43:39.571 -06:00 [INF] Collected 0 Azure Insights metrics
+2026-02-20 16:43:39.573 -06:00 [INF] Saved 0 Azure Insights metrics. Next collection in 15 minutes
+2026-02-20 16:50:56.116 -06:00 [INF] Application is shutting down...
+2026-02-20 16:51:36.148 -06:00 [INF] Starting Metrics Worker Service
+2026-02-20 16:51:36.579 -06:00 [INF] Connecting to Astra DB: c0a9cbbf-b373-44ff-a5d8-b557ecb22a0a
+2026-02-20 16:51:38.559 -06:00 [INF] Successfully connected to Astra DB keyspace: metrics_data
+2026-02-20 16:51:38.657 -06:00 [INF] Azure Insights Worker started
+2026-02-20 16:51:38.658 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-20 16:51:38.661 -06:00 [INF] Collecting Azure Insights metrics...
+2026-02-20 16:51:38.663 -06:00 [INF] Hosting environment: Development
+2026-02-20 16:51:38.667 -06:00 [INF] Content root path: C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker
+2026-02-20 16:51:38.667 -06:00 [INF] Starting Azure Insights metrics collection
+2026-02-20 16:51:43.001 -06:00 [INF] Extracted 0 request metrics from workspace logs
+2026-02-20 16:51:44.562 -06:00 [INF] Metric sync successful.
+2026-02-20 16:51:44.563 -06:00 [INF] Collected 0 Azure Insights metrics
+2026-02-20 16:51:44.568 -06:00 [INF] Saved 0 Azure Insights metrics. Next collection in 15 minutes
+2026-02-20 16:55:01.584 -06:00 [INF] Application is shutting down...
+2026-02-20 17:20:30.029 -06:00 [INF] Starting Metrics Worker Service
+2026-02-20 17:20:30.498 -06:00 [INF] Connecting to Astra DB: c0a9cbbf-b373-44ff-a5d8-b557ecb22a0a
+2026-02-20 17:20:32.335 -06:00 [INF] Successfully connected to Astra DB keyspace: metrics_data
+2026-02-20 17:20:32.446 -06:00 [INF] Azure Insights Worker started
+2026-02-20 17:20:32.446 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-20 17:20:32.449 -06:00 [INF] Collecting Azure Insights metrics...
+2026-02-20 17:20:32.451 -06:00 [INF] Hosting environment: Development
+2026-02-20 17:20:32.454 -06:00 [INF] Starting Azure Insights metrics collection
+2026-02-20 17:20:32.454 -06:00 [INF] Content root path: C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker
+2026-02-20 17:20:33.563 -06:00 [INF] Extracted 0 request metrics from workspace logs
+2026-02-20 17:20:42.997 -06:00 [INF] Metric sync successful.
+2026-02-20 17:20:43.000 -06:00 [INF] Collected 0 Azure Insights metrics
+2026-02-20 17:20:43.003 -06:00 [INF] Saved 0 Azure Insights metrics. Next collection in 15 minutes
+2026-02-20 17:24:24.218 -06:00 [INF] Application is shutting down...
+2026-02-20 17:24:41.343 -06:00 [INF] Starting Metrics Worker Service
+2026-02-20 17:24:41.839 -06:00 [INF] Connecting to Astra DB: c0a9cbbf-b373-44ff-a5d8-b557ecb22a0a
+2026-02-20 17:24:43.875 -06:00 [INF] Successfully connected to Astra DB keyspace: metrics_data
+2026-02-20 17:24:44.262 -06:00 [INF] Azure Insights Worker started
+2026-02-20 17:24:44.263 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-20 17:24:44.263 -06:00 [INF] Collecting Azure Insights metrics...
+2026-02-20 17:24:44.264 -06:00 [INF] GitHub Metrics Worker started
+2026-02-20 17:24:44.264 -06:00 [INF] Hosting environment: Development
+2026-02-20 17:24:44.265 -06:00 [INF] Collecting GitHub metrics...
+2026-02-20 17:24:44.266 -06:00 [INF] Starting Azure Insights metrics collection
+2026-02-20 17:24:44.266 -06:00 [INF] Content root path: C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker
+2026-02-20 17:24:44.269 -06:00 [INF] Collecting GitHub repository metrics
+2026-02-20 17:24:44.275 -06:00 [ERR] Error collecting metrics for repository: chasertx/SuperSecretProject
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.RepositoriesClient.Get(String owner, String name) in /_/Octokit/Clients/RepositoriesClient.cs:line 287
+   at MetricsWorker.Services.GitHubCollector.CollectRepositoryMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 44
+2026-02-20 17:24:44.406 -06:00 [ERR] Error collecting metrics for repository: chasertx/AStatePlumbing
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.RepositoriesClient.Get(String owner, String name) in /_/Octokit/Clients/RepositoriesClient.cs:line 287
+   at MetricsWorker.Services.GitHubCollector.CollectRepositoryMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 44
+2026-02-20 17:24:44.515 -06:00 [ERR] Error collecting metrics for repository: chasertx/SuperSecretProject
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.RepositoriesClient.Get(String owner, String name) in /_/Octokit/Clients/RepositoriesClient.cs:line 287
+   at MetricsWorker.Services.GitHubCollector.CollectRepositoryMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 44
+2026-02-20 17:24:44.629 -06:00 [ERR] Error collecting metrics for repository: chasertx/SuperSecretFrontEnd
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.RepositoriesClient.Get(String owner, String name) in /_/Octokit/Clients/RepositoriesClient.cs:line 287
+   at MetricsWorker.Services.GitHubCollector.CollectRepositoryMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 44
+2026-02-20 17:24:44.745 -06:00 [ERR] Error collecting metrics for repository: chasertx/NodeKanbanBoard
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.RepositoriesClient.Get(String owner, String name) in /_/Octokit/Clients/RepositoriesClient.cs:line 287
+   at MetricsWorker.Services.GitHubCollector.CollectRepositoryMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 44
+2026-02-20 17:24:44.853 -06:00 [ERR] Error collecting metrics for repository: chasertx/pulse-backend
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.RepositoriesClient.Get(String owner, String name) in /_/Octokit/Clients/RepositoriesClient.cs:line 287
+   at MetricsWorker.Services.GitHubCollector.CollectRepositoryMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 44
+2026-02-20 17:24:44.971 -06:00 [ERR] Error collecting metrics for repository: chasertx/pulse-dashboard
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.RepositoriesClient.Get(String owner, String name) in /_/Octokit/Clients/RepositoriesClient.cs:line 287
+   at MetricsWorker.Services.GitHubCollector.CollectRepositoryMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 44
+2026-02-20 17:24:45.079 -06:00 [INF] Collecting GitHub commit metrics
+2026-02-20 17:24:45.082 -06:00 [ERR] Error collecting commits for repository: chasertx/SuperSecretProject
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.RepositoryCommitsClient.GetAll(String owner, String name, CommitRequest request) in /_/Octokit/Clients/RepositoryCommitsClient.cs:line 266
+   at MetricsWorker.Services.GitHubCollector.CollectCommitMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 130
+2026-02-20 17:24:45.087 -06:00 [ERR] Error collecting commits for repository: chasertx/AStatePlumbing
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.RepositoryCommitsClient.GetAll(String owner, String name, CommitRequest request) in /_/Octokit/Clients/RepositoryCommitsClient.cs:line 266
+   at MetricsWorker.Services.GitHubCollector.CollectCommitMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 130
+2026-02-20 17:24:45.089 -06:00 [ERR] Error collecting commits for repository: chasertx/SuperSecretProject
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.RepositoryCommitsClient.GetAll(String owner, String name, CommitRequest request) in /_/Octokit/Clients/RepositoryCommitsClient.cs:line 266
+   at MetricsWorker.Services.GitHubCollector.CollectCommitMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 130
+2026-02-20 17:24:45.093 -06:00 [ERR] Error collecting commits for repository: chasertx/SuperSecretFrontEnd
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.RepositoryCommitsClient.GetAll(String owner, String name, CommitRequest request) in /_/Octokit/Clients/RepositoryCommitsClient.cs:line 266
+   at MetricsWorker.Services.GitHubCollector.CollectCommitMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 130
+2026-02-20 17:24:45.096 -06:00 [ERR] Error collecting commits for repository: chasertx/NodeKanbanBoard
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.RepositoryCommitsClient.GetAll(String owner, String name, CommitRequest request) in /_/Octokit/Clients/RepositoryCommitsClient.cs:line 266
+   at MetricsWorker.Services.GitHubCollector.CollectCommitMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 130
+2026-02-20 17:24:45.099 -06:00 [ERR] Error collecting commits for repository: chasertx/pulse-backend
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.RepositoryCommitsClient.GetAll(String owner, String name, CommitRequest request) in /_/Octokit/Clients/RepositoryCommitsClient.cs:line 266
+   at MetricsWorker.Services.GitHubCollector.CollectCommitMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 130
+2026-02-20 17:24:45.103 -06:00 [ERR] Error collecting commits for repository: chasertx/pulse-dashboard
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.RepositoryCommitsClient.GetAll(String owner, String name, CommitRequest request) in /_/Octokit/Clients/RepositoryCommitsClient.cs:line 266
+   at MetricsWorker.Services.GitHubCollector.CollectCommitMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 130
+2026-02-20 17:24:45.111 -06:00 [INF] Initiating PR sync sequence
+2026-02-20 17:24:45.114 -06:00 [ERR] Error collecting PRs for repository: chasertx/SuperSecretProject
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.PullRequestsClient.GetAllForRepository(String owner, String name, PullRequestRequest request) in /_/Octokit/Clients/PullRequestsClient.cs:line 148
+   at MetricsWorker.Services.GitHubCollector.CollectPullRequestMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 187
+2026-02-20 17:24:45.117 -06:00 [ERR] Error collecting PRs for repository: chasertx/AStatePlumbing
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.PullRequestsClient.GetAllForRepository(String owner, String name, PullRequestRequest request) in /_/Octokit/Clients/PullRequestsClient.cs:line 148
+   at MetricsWorker.Services.GitHubCollector.CollectPullRequestMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 187
+2026-02-20 17:24:45.121 -06:00 [ERR] Error collecting PRs for repository: chasertx/SuperSecretProject
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.PullRequestsClient.GetAllForRepository(String owner, String name, PullRequestRequest request) in /_/Octokit/Clients/PullRequestsClient.cs:line 148
+   at MetricsWorker.Services.GitHubCollector.CollectPullRequestMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 187
+2026-02-20 17:24:45.126 -06:00 [ERR] Error collecting PRs for repository: chasertx/SuperSecretFrontEnd
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.PullRequestsClient.GetAllForRepository(String owner, String name, PullRequestRequest request) in /_/Octokit/Clients/PullRequestsClient.cs:line 148
+   at MetricsWorker.Services.GitHubCollector.CollectPullRequestMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 187
+2026-02-20 17:24:45.130 -06:00 [ERR] Error collecting PRs for repository: chasertx/NodeKanbanBoard
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.PullRequestsClient.GetAllForRepository(String owner, String name, PullRequestRequest request) in /_/Octokit/Clients/PullRequestsClient.cs:line 148
+   at MetricsWorker.Services.GitHubCollector.CollectPullRequestMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 187
+2026-02-20 17:24:45.133 -06:00 [ERR] Error collecting PRs for repository: chasertx/pulse-backend
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.PullRequestsClient.GetAllForRepository(String owner, String name, PullRequestRequest request) in /_/Octokit/Clients/PullRequestsClient.cs:line 148
+   at MetricsWorker.Services.GitHubCollector.CollectPullRequestMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 187
+2026-02-20 17:24:45.138 -06:00 [ERR] Error collecting PRs for repository: chasertx/pulse-dashboard
+System.ArgumentException: String cannot be empty (Parameter 'owner')
+   at Octokit.Ensure.ArgumentNotNullOrEmptyString(String value, String name) in /_/Octokit/Helpers/Ensure.cs:line 47
+   at Octokit.PullRequestsClient.GetAllForRepository(String owner, String name, PullRequestRequest request) in /_/Octokit/Clients/PullRequestsClient.cs:line 148
+   at MetricsWorker.Services.GitHubCollector.CollectPullRequestMetricsAsync(CancellationToken cancellationToken) in C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker\Services\GitHubCollector.cs:line 187
+2026-02-20 17:24:45.140 -06:00 [INF] Pull request data harvest complete.
+2026-02-20 17:24:45.143 -06:00 [INF] Saved 0 GitHub metrics. Next collection in 30 minutes
+2026-02-20 17:24:49.995 -06:00 [INF] Extracted 0 request metrics from workspace logs
+2026-02-20 17:25:03.818 -06:00 [INF] Metric sync successful.
+2026-02-20 17:25:03.821 -06:00 [INF] Collected 0 Azure Insights metrics
+2026-02-20 17:25:03.824 -06:00 [INF] Saved 0 Azure Insights metrics. Next collection in 15 minutes
+2026-02-20 17:26:17.516 -06:00 [INF] Application is shutting down...
+2026-02-20 17:26:33.768 -06:00 [INF] Starting Metrics Worker Service
+2026-02-20 17:26:34.167 -06:00 [INF] Connecting to Astra DB: c0a9cbbf-b373-44ff-a5d8-b557ecb22a0a
+2026-02-20 17:26:35.975 -06:00 [INF] Successfully connected to Astra DB keyspace: metrics_data
+2026-02-20 17:26:36.268 -06:00 [INF] Azure Insights Worker started
+2026-02-20 17:26:36.268 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-20 17:26:36.271 -06:00 [INF] Collecting Azure Insights metrics...
+2026-02-20 17:26:36.271 -06:00 [INF] GitHub Metrics Worker started
+2026-02-20 17:26:36.276 -06:00 [INF] Collecting GitHub metrics...
+2026-02-20 17:26:36.273 -06:00 [INF] Hosting environment: Development
+2026-02-20 17:26:36.276 -06:00 [INF] Starting Azure Insights metrics collection
+2026-02-20 17:26:36.279 -06:00 [INF] Content root path: C:\DEV\Azure-Git-Worker-Cassandra\MetricsWorker\MetricsWorker
+2026-02-20 17:26:36.279 -06:00 [INF] Collecting GitHub repository metrics
+2026-02-20 17:26:36.284 -06:00 [INF] Collecting GitHub commit metrics
+2026-02-20 17:26:36.290 -06:00 [INF] Initiating PR sync sequence
+2026-02-20 17:26:36.293 -06:00 [INF] Pull request data harvest complete.
+2026-02-20 17:26:36.295 -06:00 [INF] Saved 0 GitHub metrics. Next collection in 30 minutes
+2026-02-20 17:26:36.970 -06:00 [INF] Extracted 0 request metrics from workspace logs
+2026-02-20 17:26:37.109 -06:00 [INF] Metric sync successful.
+2026-02-20 17:26:37.111 -06:00 [INF] Collected 0 Azure Insights metrics
+2026-02-20 17:26:37.114 -06:00 [INF] Saved 0 Azure Insights metrics. Next collection in 15 minutes
+2026-02-20 17:31:54.544 -06:00 [INF] Application is shutting down...
