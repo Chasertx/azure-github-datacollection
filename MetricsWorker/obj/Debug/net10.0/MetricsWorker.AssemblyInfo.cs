@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MetricsWorker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+541a2e35577e0d989b2c9f0d08185889f484f8ce")]
 [assembly: System.Reflection.AssemblyProductAttribute("MetricsWorker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MetricsWorker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
