@@ -7,6 +7,7 @@ using MetricsWorker.Interfaces;
 
 namespace MetricsWorker.Repositories;
 
+// Handles all writes to Cassandra/Astra DB for collected metrics.
 public class CassandraRepository : ICassandraRepository, IDisposable
 {
     private readonly ILogger<CassandraRepository> _logger;
@@ -18,17 +19,19 @@ public class CassandraRepository : ICassandraRepository, IDisposable
         ILogger<CassandraRepository> logger,
         IOptions<AstraDBConfig> config)
     {
+        // Pull logger and DB settings from dependency injection.
         _logger = logger;
         _config = config.Value;
     }
 
+    // Opens the Astra DB connection and selects the configured keyspace.
     public async Task InitializeAsync()
     {
         try
         {
             _logger.LogInformation("Connecting to Astra DB: {DatabaseId}", _config.DatabaseId);
 
-            // Validate configuration
+            // Basic config checks so failures happen early with clear errors.
             if (string.IsNullOrEmpty(_config.SecureConnectBundlePath))
             {
                 throw new InvalidOperationException("SecureConnectBundlePath is not configured");
@@ -45,7 +48,7 @@ public class CassandraRepository : ICassandraRepository, IDisposable
                 throw new InvalidOperationException("ApplicationToken is not configured");
             }
 
-            // Build cluster connection for Astra DB
+            // Build Cassandra driver connection using Astra secure bundle + token auth.
             _cluster = Cluster.Builder()
                 .WithCloudSecureConnectionBundle(_config.SecureConnectBundlePath)
                 .WithCredentials("token", _config.ApplicationToken)
@@ -63,6 +66,7 @@ public class CassandraRepository : ICassandraRepository, IDisposable
         }
     }
 
+    // Writes one Azure metric row into the azure_insights_metrics table.
     public async Task SaveAzureMetricAsync(AzureInsightsMetric metric)
     {
         var insert = @"
@@ -85,6 +89,7 @@ public class CassandraRepository : ICassandraRepository, IDisposable
             metric.MetricName, metric.Value);
     }
 
+    // Writes one GitHub aggregate metric row into the github_metrics table.
     public async Task SaveGitHubMetricAsync(GitHubMetric metric)
     {
         var insert = @"
@@ -106,6 +111,7 @@ public class CassandraRepository : ICassandraRepository, IDisposable
             metric.Repository, metric.MetricType, metric.Count);
     }
 
+    // Writes one commit-level metric row into the commit_metrics table.
     public async Task SaveCommitMetricAsync(CommitMetric metric)
     {
         var insert = @"
@@ -125,6 +131,7 @@ public class CassandraRepository : ICassandraRepository, IDisposable
         await _session!.ExecuteAsync(statement);
     }
 
+    // Writes one pull-request-level metric row into the pull_request_metrics table.
     public async Task SavePullRequestMetricAsync(PullRequestMetric metric)
     {
         var insert = @"
@@ -147,6 +154,7 @@ public class CassandraRepository : ICassandraRepository, IDisposable
         await _session!.ExecuteAsync(statement);
     }
 
+    // Cleans up Cassandra resources when the repository is disposed.
     public void Dispose()
     {
         _session?.Dispose();

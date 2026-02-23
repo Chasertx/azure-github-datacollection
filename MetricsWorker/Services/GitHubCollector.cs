@@ -7,6 +7,7 @@ using MetricsWorker.Interfaces;
 
 namespace MetricsWorker.Services;
 
+// Collects repository, commit, and pull request data from GitHub.
 public class GitHubCollector : IGitHubCollector
 {
     private readonly ILogger<GitHubCollector> _logger;
@@ -20,13 +21,14 @@ public class GitHubCollector : IGitHubCollector
         _logger = logger;
         _config = config.Value;
 
-        // Initialize GitHub client with personal access token
+        // Create an authenticated GitHub client using the configured token.
         _client = new GitHubClient(new ProductHeaderValue("MetricsWorker"))
         {
             Credentials = new Credentials(_config.Token)
         };
     }
 
+    // Collects high-level repository metrics (size, stars, forks, open issues).
     public async Task<IEnumerable<GitHubMetric>> CollectRepositoryMetricsAsync(
         CancellationToken cancellationToken = default)
     {
@@ -41,6 +43,7 @@ public class GitHubCollector : IGitHubCollector
             {
                 try
                 {
+                    // Read current repository state and map it into metric records.
                     var repository = await _client.Repository.Get(_config.Organization, repoName);
 
                     metrics.Add(new GitHubMetric
@@ -70,7 +73,6 @@ public class GitHubCollector : IGitHubCollector
                         }
                     });
 
-                    // Octokit uses AllowFork instead of AllowForking
                     metrics.Add(new GitHubMetric
                     {
                         Id = Guid.NewGuid(),
@@ -112,6 +114,7 @@ public class GitHubCollector : IGitHubCollector
         return metrics;
     }
 
+    // Collects commit details from the last 24 hours for configured repositories.
     public async Task<IEnumerable<CommitMetric>> CollectCommitMetricsAsync(
         CancellationToken cancellationToken = default)
     {
@@ -131,7 +134,7 @@ public class GitHubCollector : IGitHubCollector
 
                     foreach (var commit in repoCommits)
                     {
-                        // Fetch individual commit details to extract file stats
+                        // Pull full commit details so we can capture additions/deletions.
                         var detailedCommit = await _client.Repository.Commit.Get(_config.Organization, repoName, commit.Sha);
 
                         commits.Add(new CommitMetric
@@ -164,6 +167,7 @@ public class GitHubCollector : IGitHubCollector
         return commits;
     }
 
+    // Collects pull request activity and engagement metrics for recently updated PRs.
     public async Task<IEnumerable<PullRequestMetric>> CollectPullRequestMetricsAsync(
         CancellationToken cancellationToken = default)
     {
@@ -189,7 +193,7 @@ public class GitHubCollector : IGitHubCollector
 
                     foreach (var pr in recentPrs)
                     {
-                        // Aggregate reviews and comments for PR activity tracking
+                        // Gather review + comment counts to measure PR activity.
                         var reviews = await _client.PullRequest.Review.GetAll(_config.Organization, repoName, pr.Number);
                         var issueComments = await _client.Issue.Comment.GetAllForIssue(_config.Organization, repoName, pr.Number);
                         var reviewComments = await _client.PullRequest.ReviewComment.GetAll(_config.Organization, repoName, pr.Number);

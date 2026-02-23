@@ -10,6 +10,7 @@ using Microsoft.Extensions.Options;
 
 namespace MetricsWorker.Services;
 
+// Collects Azure Application Insights data from Log Analytics and maps it into app metric models.
 public class AzureInsightsCollector : IAzureInsightsCollector
 {
     private readonly ILogger<AzureInsightsCollector> _logger;
@@ -23,7 +24,7 @@ public class AzureInsightsCollector : IAzureInsightsCollector
         _logger = logger;
         _config = config.Value;
 
-        // Initialize credentials using service principal
+        // Authenticate with Azure using the configured app registration credentials.
         var credential = new ClientSecretCredential(
             _config.TenantId,
             _config.ClientId,
@@ -41,7 +42,7 @@ public class AzureInsightsCollector : IAzureInsightsCollector
         {
             _logger.LogInformation("Starting Azure Insights metrics collection");
 
-            // Aggregate metrics from all collectors
+            // Run all metric collectors and combine the results into one list.
             metrics.AddRange(await CollectRequestMetricsAsync(cancellationToken));
             metrics.AddRange(await CollectDependencyMetricsAsync(cancellationToken));
             metrics.AddRange(await CollectExceptionMetricsAsync(cancellationToken));
@@ -63,7 +64,7 @@ public class AzureInsightsCollector : IAzureInsightsCollector
         var metrics = new List<AzureInsightsMetric>();
         try
         {
-            // Querying AppRequests with PascalCase columns
+            // Pull request-level telemetry and summarize latency/count metrics in 5-minute buckets.
             var query = @"
                 AppRequests
                 | where TimeGenerated > ago(700h)
@@ -86,6 +87,7 @@ public class AzureInsightsCollector : IAzureInsightsCollector
             var table = response.Value.Table;
             foreach (var row in table.Rows)
             {
+                // Build app model records from each query row, with safe fallback values.
                 var timestamp = row.GetDateTimeOffset("TimeGenerated") ?? DateTimeOffset.UtcNow;
                 var operationName = row.GetString("Name") ?? "unknown";
                 var resultCode = row.GetString("ResultCode") ?? "200";
@@ -127,7 +129,7 @@ public class AzureInsightsCollector : IAzureInsightsCollector
         var metrics = new List<AzureInsightsMetric>();
         try
         {
-            // Querying AppDependencies using DurationMs and PascalCase
+            // Pull dependency-call telemetry and summarize duration and success/failure counts.
             var query = @"
                 AppDependencies
                 | where TimeGenerated > ago(700h)
@@ -177,7 +179,7 @@ public class AzureInsightsCollector : IAzureInsightsCollector
         var metrics = new List<AzureInsightsMetric>();
         try
         {
-            // AppExceptions uses ExceptionType and Message
+            // Pull exception telemetry and count occurrences by type/message over time.
             var query = @"
                 AppExceptions
                 | where TimeGenerated > ago(700h)
@@ -215,7 +217,7 @@ public class AzureInsightsCollector : IAzureInsightsCollector
         var metrics = new List<AzureInsightsMetric>();
         try
         {
-            // AppMetrics uses Sum for the value column
+            // Pull custom metrics and aggregate average values by metric name.
             var query = @"
                 AppMetrics
                 | where TimeGenerated > ago(700h)

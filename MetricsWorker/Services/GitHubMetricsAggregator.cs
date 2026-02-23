@@ -3,12 +3,14 @@ using Microsoft.Extensions.Logging;
 
 namespace MetricsWorker.Services;
 
+// Defines aggregate calculations that convert raw GitHub events into summary metrics.
 public interface IGitHubMetricsAggregator
 {
     IEnumerable<GitHubMetric> CalculateCommitMetrics(IEnumerable<CommitMetric> commits, DateTime timestamp);
     IEnumerable<GitHubMetric> CalculatePullRequestMetrics(IEnumerable<PullRequestMetric> pullRequests, DateTime timestamp);
 }
 
+// Groups commit/PR data and computes higher-level GitHub metrics per repository.
 public class GitHubMetricsAggregator : IGitHubMetricsAggregator
 {
     private readonly ILogger<GitHubMetricsAggregator> _logger;
@@ -24,18 +26,19 @@ public class GitHubMetricsAggregator : IGitHubMetricsAggregator
     {
         var metrics = new List<GitHubMetric>();
 
+        // Materialize once so we can efficiently check and reuse the data.
         var commitsList = commits.ToList();
         if (!commitsList.Any())
             return metrics;
 
-        // Group by repository
+        // Compute commit aggregates separately for each repository.
         var byRepo = commitsList.GroupBy(c => c.Repository);
 
         foreach (var repoGroup in byRepo)
         {
             var repoCommits = repoGroup.ToList();
 
-            // Total commits count
+            // Total commits seen in the last 24-hour collection window.
             metrics.Add(new GitHubMetric
             {
                 Id = Guid.NewGuid(),
@@ -49,7 +52,7 @@ public class GitHubMetricsAggregator : IGitHubMetricsAggregator
                 }
             });
 
-            // Lines of code changed
+            // Total lines added/deleted across all commits.
             var totalAdded = repoCommits.Sum(c => c.LinesAdded);
             var totalDeleted = repoCommits.Sum(c => c.LinesDeleted);
 
@@ -79,7 +82,7 @@ public class GitHubMetricsAggregator : IGitHubMetricsAggregator
                 }
             });
 
-            // Unique contributors
+            // Number of unique commit authors.
             var uniqueAuthors = repoCommits.Select(c => c.Author).Distinct().Count();
             metrics.Add(new GitHubMetric
             {
@@ -94,7 +97,7 @@ public class GitHubMetricsAggregator : IGitHubMetricsAggregator
                 }
             });
 
-            // Average commit size
+            // Average commit size based on lines changed (added + deleted).
             var avgCommitSize = repoCommits.Any()
                 ? (int)repoCommits.Average(c => c.LinesAdded + c.LinesDeleted)
                 : 0;
@@ -124,17 +127,19 @@ public class GitHubMetricsAggregator : IGitHubMetricsAggregator
     {
         var metrics = new List<GitHubMetric>();
 
+        // Materialize once so we can efficiently check and reuse the data.
         var prList = pullRequests.ToList();
         if (!prList.Any())
             return metrics;
 
+        // Compute PR aggregates separately for each repository.
         var byRepo = prList.GroupBy(pr => pr.Repository);
 
         foreach (var repoGroup in byRepo)
         {
             var repoPRs = repoGroup.ToList();
 
-            // Open PRs
+            // Current number of open pull requests.
             var openPRs = repoPRs.Count(pr => pr.State == "open");
             metrics.Add(new GitHubMetric
             {
@@ -146,7 +151,7 @@ public class GitHubMetricsAggregator : IGitHubMetricsAggregator
                 Metadata = new Dictionary<string, string>()
             });
 
-            // Merged PRs (last 7 days)
+            // Number of PRs merged in the last 7 days.
             var mergedPRs = repoPRs.Count(pr =>
                 pr.MergedAt.HasValue &&
                 pr.MergedAt.Value > DateTime.UtcNow.AddDays(-7));
@@ -164,7 +169,7 @@ public class GitHubMetricsAggregator : IGitHubMetricsAggregator
                 }
             });
 
-            // Average time to merge (for merged PRs in last 7 days)
+            // Average time-to-merge for PRs merged in the last 7 days.
             var recentMergedPRs = repoPRs
                 .Where(pr => pr.MergedAt.HasValue &&
                             pr.MergedAt.Value > DateTime.UtcNow.AddDays(-7))
@@ -190,7 +195,7 @@ public class GitHubMetricsAggregator : IGitHubMetricsAggregator
                 });
             }
 
-            // Average review/comment activity
+            // Average discussion/review activity across PRs.
             var avgComments = repoPRs.Any() ? (int)repoPRs.Average(pr => pr.CommentsCount) : 0;
             var avgReviews = repoPRs.Any() ? (int)repoPRs.Average(pr => pr.ReviewsCount) : 0;
 
